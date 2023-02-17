@@ -16,18 +16,25 @@ import {
   DrillThrough,
   Grouping,
 } from '@syncfusion/ej2-react-pivotview';
-import { registerLicense } from '@syncfusion/ej2-base';
-// import * as dataSource from './pivot-data/branddata.json';
+// import * as dataSource from './pivot-data/universitydata.json';
 import * as dataSource from './pivot-data/sampledata.json';
 import { updateSampleSection } from './sample-base';
 import { select, createElement } from '@syncfusion/ej2-base';
+import { registerLicense } from '@syncfusion/ej2-base';
+
+// import { PivotViewPlugin } from '@syncfusion/ej2-vue-pivotview';
+
+// Vue.component(PivotViewPlugin);
+
+// Registering Syncfusion license key
 registerLicense(
   'Mgo+DSMBaFt/QHRqVVhkVFpHaV5LQmFJfFBmQmlZelR1c0U3HVdTRHRcQl9iTn5UdkBmUXpad3Y=;Mgo+DSMBPh8sVXJ0S0J+XE9AflRBQmJAYVF2R2BJeFRwcV9DZ0wgOX1dQl9gSXxScUVkWXpbeHNXRmM=;ORg4AjUWIQA/Gnt2VVhkQlFacldJXnxId0x0RWFab1l6dFBMZVtBNQtUQF1hSn5Rd0JjXn9bdXxSQmVf;MTE1MDQ1NEAzMjMwMmUzNDJlMzBTZHNQRDlDRTQrczhDU1BPdWxrd3VqNFcvNGFFQXI1OWVSSUdHZ0syNzRvPQ==;MTE1MDQ1NUAzMjMwMmUzNDJlMzBaeHpoa0M1aEIwbmVwT04rRW00czhWYXhPNkVaZEMwL0puVFJ2WFlHWGRNPQ==;NRAiBiAaIQQuGjN/V0Z+WE9EaFtKVmBWf1ppR2NbfE53flVDallWVAciSV9jS31TdERkWXhedXFdQWlVVQ==;MTE1MDQ1N0AzMjMwMmUzNDJlMzBWSmNkNlJJOEFJcEo3aW5zUTIwU0ZVNTc3V1lqYWJpeUpvL2dZeUMrUHM0PQ==;MTE1MDQ1OEAzMjMwMmUzNDJlMzBhYmlYdjhMTjN4bHM4QjRBWitzbFFpYklRYkpGMlNOd1B5MjdJWC93WUs0PQ==;Mgo+DSMBMAY9C3t2VVhkQlFacldJXnxId0x0RWFab1l6dFBMZVtBNQtUQF1hSn5Rd0JjXn9bdXxdQ2lY;MTE1MDQ2MEAzMjMwMmUzNDJlMzBCNjFEY29xWkFzUm9MTDUwWElPVWdpbnpIK2xHaTBHYmh4Q1c5MEI4MkdvPQ==;MTE1MDQ2MUAzMjMwMmUzNDJlMzBIM1ZHTXNxOTgvanpvKzFMbXhvYjF0dDdXMGFQaGJhTVpKdW00UWNrOGg0PQ==;MTE1MDQ2MkAzMjMwMmUzNDJlMzBWSmNkNlJJOEFJcEo3aW5zUTIwU0ZVNTc3V1lqYWJpeUpvL2dZeUMrUHM0PQ=='
 );
+
 /**
  * PivotView Toolbar Sample
  */
-// let SampleData = dataSource.data;
+// let UniversityData = dataSource.data;
 let SampleData = dataSource.data;
 let dataSourceSettings = {
   enableSorting: true,
@@ -81,10 +88,10 @@ function PivotToolbar() {
     if (
       args.cellInfo &&
       args.cellInfo.axis === 'row' &&
-      args.cellInfo.valueSort.axis === 'brand'
+      args.cellInfo.valueSort.axis === 'Organization'
     ) {
       let imgElement = createElement('img', {
-        className: 'brand-logo',
+        className: 'university-logo',
         attrs: {
           src: SampleData[args.cellInfo.index[0]].logo,
           alt: args.cellInfo.formattedText,
@@ -294,7 +301,7 @@ function PivotToolbar() {
         <div className="urllink">
           Source:
           <a
-            href="https://www.topuniversities.com/brand-rankings?utm_source=topnav"
+            href="https://www.topuniversities.com/university-rankings?utm_source=topnav"
             target="_blank"
           >
             QS World University Rankings
